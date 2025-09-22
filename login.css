@@ -1,0 +1,187 @@
+/* =============================
+  GERAL E FUNDO (BASEADO NA SUA IMAGEM)
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff; /* Texto branco para alto contraste */
+  
+  /* --- CAMINHO DA SUA IMAGEM AQUI --- */
+  background: url('Imagem/psi.jpg') no-repeat center center fixed; /* Substitua pelo caminho real da sua imagem */
+  /* ---------------------------------- */
+
+  background-size: cover; /* Garante que a imagem cubra todo o fundo */
+  
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow: hidden; 
+}
+
+/* =============================
+  CAIXA DE LOGIN (Mais clean, com foco no neon)
+============================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente para o contraste */
+  backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4), /* Brilho ciano */
+              0 0 80px rgba(255, 0, 255, 0.3); /* Brilho magenta */
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid rgba(0, 255, 255, 0.7); /* Borda ciano neon */
+  animation: fadeIn 0.8s ease-out;
+  position: relative; /* Para posicionar o ícone e o título */
+}
+
+.heart-lock {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  color: #00ffff; /* Ciano neon */
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+/* =============================
+  TEXTO NEON E FONTES
+============================= */
+.login-container h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
+  
+  /* Texto preto com brilho neon magenta e contorno branco */
+  color: #000;
+  text-shadow: 
+    0 0 5px #ff00ff, 
+    0 0 10px #ff00ff, 
+    0 0 15px #ff00ff,
+    -1px -1px 0 #fff,  
+     1px -1px 0 #fff,
+    -1px  1px 0 #fff,
+     1px  1px 0 #fff;
+  
+  margin-bottom: 10px;
+}
+
+.login-container .subtitle {
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* =============================
+  INPUTS E BOTÃO (Aprimorados para neon)
+============================= */
+.input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 700;
+  color: #00ffff; /* Ciano neon */
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+
+  /* Efeito neon com contorno preto para legibilidade */
+  text-shadow: 
+    0 0 5px #00ffff, 
+    0 0 10px #00ffff,
+    0 0 2px #000, -1px -1px 2px #000, 1px -1px 2px #000, 
+    -1px 1px 2px #000, 1px 1px 2px #000;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 2px solid #ff00ff; /* Borda magenta neon */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #00ff00; /* Borda verde neon ao focar */
+  box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+}
+
+.login-button {
+  display: inline-block;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, #ff00ff, #00ffff); /* Gradiente neon */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none; /* Remove a borda para o gradiente ser o destaque */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5), 0 0 25px rgba(0, 255, 255, 0.5); /* Brilho neon */
+}
+
+.login-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #fff, 0 0 30px #fff; /* Brilho branco intenso no hover */
+  background: linear-gradient(45deg, #fff, #eee); /* Fundo claro no hover */
+  color: #000;
+}
+
+/* =============================
+  RESPONSIVIDADE
+============================= */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 30px 25px;
+  }
+
+  .login-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .heart-lock {
+    font-size: 3rem;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+  }
+
+  .login-button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

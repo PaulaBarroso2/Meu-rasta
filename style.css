@@ -1,0 +1,335 @@
+/* =============================
+  RESET + GERAL
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #ffdfe6 0%, #ffeef2 60%, #fff 100%);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+  NAVBAR
+============================= */
+.navbar {
+  background: linear-gradient(90deg, #c00404 0%, #000 100%);
+  padding: 20px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+  gap: 15px; /* Espaçamento entre logo e links */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid #ffb6c1;
+}
+
+.logo {
+  width: 100px;
+  border-radius: 12px;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.navbar-left {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navbar-left li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all .25s;
+}
+
+.navbar-left li a:hover {
+  background: #ffd700;
+  color: #c00404;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* =============================
+  MAIN E LAYOUT
+============================= */
+main {
+  padding: 20px;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1600px; /* Limita a largura máxima em telas muito grandes */
+  margin: 0 auto; /* Centraliza o conteúdo principal */
+}
+
+.layout-principal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap; /* Permite que as colunas se empilhem */
+}
+
+.lado-esquerdo {
+  flex: 1 1 500px; /* Permite crescer e encolher, com base de 500px */
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 300px; /* Largura mínima para não espremer demais */
+}
+
+.lado-direito {
+  flex: 1 1 600px; /* Permite crescer e encolher, com base de 600px */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
+}
+
+/* CARD PRINCIPAL */
+.aracaju-pginicial {
+  background: linear-gradient(180deg, #ff6b6b, #b80000);
+  color: #fff;
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+
+.titulo-1 {
+  font-size: 2.5rem; /* Usando REM para melhor acessibilidade */
+  margin: 0 0 14px 0;
+  text-align: center;
+  padding: 12px;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.descricao-1 {
+  font-size: 1rem;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* =============================
+  BLOCO DE METAS (GRADE)
+============================= */
+.aba-noticias {
+  background: rgba(255, 255, 255, 0.95);
+  color: #bb0000;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.aba-noticias h2 {
+  text-align: center;
+  background: linear-gradient(90deg, #bb0000, #000);
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+
+.aba-noticias .abas {
+  display: grid;
+  /* Grid responsivo: cria colunas de no mínimo 300px, preenchendo o espaço */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.noticia {
+  background: linear-gradient(90deg, #c00404, #800);
+  color: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  font-size: 15px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.noticia:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(90deg, #a00000, #600);
+}
+
+.noticia img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* =============================
+  CARROSSEL
+============================= */
+.carrosel-1,
+.carrosel-2 {
+  display: flex;
+  width: 100%; /* Ocupa 100% do container pai (.lado-direito) */
+  height: 400px;
+  gap: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carrosel-1 img,
+.carrosel-2 img {
+  width: 0;
+  flex-grow: 1;
+  object-fit: cover;
+  transition: .45s ease;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.carrosel-1 img:hover,
+.carrosel-2 img:hover {
+  cursor: pointer;
+  width: 320px; /* Largura da imagem ativa */
+  filter: contrast(120%);
+  transform: scale(1.02);
+}
+
+/* =============================
+  RODAPÉ
+============================= */
+footer {
+  background: linear-gradient(90deg, #c00404, #000);
+  color: #fff;
+  padding: 28px 40px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha */
+}
+
+.img-rodape img {
+  width: 120px;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+}
+
+.rodape {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffd1dc;
+  font-weight: 700;
+  min-width: 250px;
+}
+
+.links-rodape ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start; /* Alinhado à esquerda por padrão */
+}
+
+.links-rodape li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.links-rodape img {
+  width: 22px;
+  height: 22px;
+}
+
+.lk-footer {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lk-footer:hover {
+  color: #ffd700;
+}
+
+/* =============================
+  RESPONSIVO - Telas menores
+============================= */
+@media (max-width: 1024px) {
+  .layout-principal {
+    flex-direction: column; /* Empilha as colunas */
+    align-items: center; /* Centraliza o conteúdo empilhado */
+  }
+  
+  .lado-esquerdo,
+  .lado-direito {
+      /* Ocupam a largura total quando empilhados */
+      flex-basis: 100%; 
+      width: 100%;
+      max-width: 700px; /* Limita a largura para não ficar muito largo em tablets */
+  }
+
+  .carrosel-1,
+  .carrosel-2 {
+      height: 320px; /* Altura menor para telas menores */
+  }
+
+  .footer-content {
+      flex-direction: column; /* Empilha os itens do rodapé */
+      text-align: center;
+  }
+  
+  .links-rodape ul {
+      align-items: center; /* Centraliza os links no rodapé */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+      font-size: 14px; /* Reduz o tamanho da fonte base */
+  }
+  
+  main {
+      padding: 15px;
+  }
+
+  .navbar {
+      justify-content: center; /* Centraliza logo e links no mobile */
+  }
+
+  .titulo-1 {
+      font-size: 2rem;
+  }
+
+  .aba-noticias h2 {
+      font-size: 1.3rem;
+  }
+
+  .carrosel-1 img:hover,
+  .carrosel-2 img:hover {
+    /* Reduz a largura da imagem ativa em telas menores para o efeito funcionar bem */
+    width: 250px; 
+  }
+}

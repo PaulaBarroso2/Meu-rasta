@@ -1,0 +1,239 @@
+/* =============================
+  GERAL E FUNDO DA PÁGINA
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+  
+  /* Imagem de fundo com um gradiente suave por cima para dar um toque romântico */
+  background-image: 
+    linear-gradient(135deg, rgba(255, 209, 220, 0.8), rgba(221, 160, 221, 0.8)),
+    url('imagens/sobrebg.png'); /* <<< COLOQUE O CAMINHO CORRETO DA SUA IMAGEM AQUI */
+  
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Efeito parallax suave ao rolar */
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =============================
+  NAVBAR E FOOTER (Idênticos às outras páginas)
+============================= */
+.navbar {
+  background: linear-gradient(90deg, #c00404 0%, #000 100%);
+  padding: 20px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid #ffb6c1;
+}
+
+.logo {
+  width: 100px;
+  border-radius: 12px;
+}
+
+.navbar-left {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navbar-left li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all .25s;
+}
+
+.navbar-left li a:hover {
+  background: #ffd700;
+  color: #c00404;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+footer {
+  background: linear-gradient(90deg, #c00404, #000);
+  color: #fff;
+  padding: 28px 40px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.img-rodape img {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.rodape {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffd1dc;
+  font-weight: 700;
+  min-width: 250px;
+}
+
+.links-rodape ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.links-rodape li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.links-rodape img {
+  width: 22px;
+  height: 22px;
+}
+
+.lk-footer {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lk-footer:hover { color: #ffd700; }
+
+/* =============================
+  CONTEÚDO PRINCIPAL E CARTA
+============================= */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Animação para a carta surgir suavemente */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-container {
+  background-color: rgba(255, 255, 255, 0.92); /* Fundo de papel translúcido */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  width: 100%;
+  border-top: 5px solid #ffb6c1; /* Detalhe de cor no topo */
+  animation: fadeInUp 1s ease-out; /* Aplica a animação */
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 25px;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.letter-container h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  text-align: center;
+  color: #c00404;
+  margin-bottom: 25px;
+}
+
+.letter-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  text-align: right;
+  color: #c00404;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+
+/* =============================
+  RESPONSIVIDADE
+============================= */
+
+@media (max-width: 768px) {
+  .letter-container {
+    padding: 30px;
+  }
+
+  .letter-container h1 {
+    font-size: 2.4rem;
+  }
+
+  .letter-container p {
+    font-size: 1rem;
+  }
+
+  .signature {
+    font-size: 1.6rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content, .navbar {
+    justify-content: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .links-rodape ul {
+    align-items: center;
+  }
+}

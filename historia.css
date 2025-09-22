@@ -1,0 +1,266 @@
+/* =============================
+  GERAL E FONTES
+============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffeef2 60%, #fff 100%);
+  color: #5c5c5c; /* Cor de texto mais suave que o preto puro */
+  line-height: 1.7;
+}
+
+/* =============================
+  NAVBAR E FOOTER (Consistentes em todas as páginas)
+============================= */
+.navbar {
+  background: linear-gradient(90deg, #c00404 0%, #000 100%);
+  padding: 20px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid #ffb6c1;
+}
+
+.logo {
+  width: 100px;
+  border-radius: 12px;
+}
+
+.navbar-left {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navbar-left li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  transition: all .25s;
+}
+
+.navbar-left li a:hover {
+  background: #ffd700;
+  color: #c00404;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+footer {
+  background: linear-gradient(90deg, #c00404, #000);
+  color: #fff;
+  padding: 28px 40px;
+  margin-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.img-rodape img {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.rodape {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ffd1dc;
+  font-weight: 700;
+  min-width: 250px;
+}
+
+.links-rodape ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.links-rodape li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.links-rodape img {
+  width: 22px;
+  height: 22px;
+}
+
+.lk-footer {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lk-footer:hover { color: #ffd700; }
+
+/* =============================
+  LAYOUT DA PÁGINA DE HISTÓRIA
+============================= */
+main {
+  padding: 40px 20px;
+}
+
+.timeline-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* NOVA ESTILIZAÇÃO DO TÍTULO COM GRAFITE DE RUA */
+.timeline-container > h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 4.5rem;
+  color: #c00404; 
+  text-align: center;
+  margin-bottom: 60px;
+  line-height: 1.1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  /* Efeito de grafite com contorno e sombra 3D */
+  text-shadow: 
+    -2px -2px 0 #fff,  
+     2px -2px 0 #fff,
+    -2px  2px 0 #fff,
+     2px  2px 0 #fff, /* Contorno branco */
+     4px 4px 0 #000, /* Sombra preta sólida para efeito 3D */
+     7px 7px 5px rgba(0,0,0,0.3); /* Sombra final para profundidade */
+}
+
+/* =============================
+  CARTÕES DE MEMÓRIA (MELHORIA VISUAL)
+============================= */
+.memory-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px -15px rgba(211, 147, 160, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memory-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -15px rgba(211, 147, 160, 0.6);
+}
+
+/* Efeito de alternar lado da imagem */
+.memory-card:nth-child(even) .memory-image {
+  order: 2; /* Inverte a ordem da imagem para o segundo lado */
+}
+
+.memory-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 3px solid #ffdde5;
+}
+
+.memory-text {
+  padding: 0 15px;
+}
+
+.memory-text h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: #d13030;
+  margin-bottom: 10px;
+}
+
+.memory-text p {
+  font-size: 1rem;
+}
+
+/* =============================
+  RESPONSIVIDADE
+============================= */
+
+/* Para Tablets */
+@media (max-width: 900px) {
+  .timeline-container > h1 {
+    font-size: 3.5rem; /* Ajuste no título para tablets */
+    letter-spacing: 2px;
+  }
+  
+  .memory-card {
+    grid-template-columns: 1fr; /* Transforma em uma única coluna */
+    gap: 25px;
+  }
+
+  /* Desfaz a inversão de ordem em telas menores */
+  .memory-card:nth-child(even) .memory-image {
+    order: 0;
+  }
+  
+  .memory-text {
+    text-align: center;
+  }
+}
+
+/* Para Celulares */
+@media (max-width: 576px) {
+  .navbar {
+    justify-content: center;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .links-rodape ul {
+    align-items: center;
+  }
+  
+  .timeline-container > h1 {
+    font-family: 'Bangers', cursive; /* Mantém a fonte grafite de rua */
+    font-size: 3.5rem; /* <<< AQUI ESTÁ A ALTERAÇÃO: TAMANHO DA FONTE DIMINUÍDO */
+    color: #c00404; 
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.1;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 
+      -2px -2px 0 #fff,  
+      2px -2px 0 #fff,
+      -2px  2px 0 #fff,
+      2px  2px 0 #fff,
+      4px 4px 0 #000, 
+      7px 7px 5px rgba(0,0,0,0.3);
+  }
+
+  .memory-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .memory-text p {
+    font-size: 0.9rem;
+  }
+}
